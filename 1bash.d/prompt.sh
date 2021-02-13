@@ -68,6 +68,11 @@ set_prompts() {
 
     # Only show username/host if not default
     function usernamehost() {
+    
+        # Set username in windows version
+        if [ -z "$USER" ]; then
+        export USER='$(whoami)';
+        fi
 
         # Highlight the user name when logged in as root.
         if [[ "${USER}" == *"root" ]]; then
